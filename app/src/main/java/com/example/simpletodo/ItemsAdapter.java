@@ -41,7 +41,7 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> 
         // 1. grab context from viewholder(parent)
         // 2. inflate it as android's simple-list-item
         View todoView = LayoutInflater.from( viewGroup.getContext() )
-                .inflate( android.R.layout.simple_list_item_1, viewGroup, false );
+                .inflate( android.R.layout.select_dialog_multichoice, viewGroup, false );
         // wrap it inside a view holder and return
         return new ViewHolder(todoView);
     }
