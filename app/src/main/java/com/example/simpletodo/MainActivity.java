@@ -2,6 +2,9 @@ package com.example.simpletodo;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
+import android.widget.Button;
+import android.widget.EditText;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -12,10 +15,23 @@ public class MainActivity extends AppCompatActivity {
     // Define a list of strings as our model items
     List<String> items;
 
+    // Create handlers to link with UI
+    Button addBtn;
+    EditText editItem;
+    RecyclerView viewItems;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Link main activity with UI view
+        addBtn = findViewById(R.id.addBtn);
+        editItem = findViewById(R.id.editItem);
+        viewItems = findViewById(R.id.viewItems);
+
+        // Each view has different functions
+        editItem.setText("Doing this from java!");
 
         items = new ArrayList<>();
         items.add("Finish Codepath pre-work for android class");
