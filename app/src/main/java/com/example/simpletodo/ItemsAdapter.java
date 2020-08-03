@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -22,19 +23,28 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> 
     @Override
     // responsible for creating each view
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
-
+        // use layout inflator to inflate a view
+        // 1. grab context from viewholder(parent)
+        // 2. inflate it as android's simple-list-item
+        View todoView = LayoutInflater.from( viewGroup.getContext() )
+                .inflate( android.R.layout.simple_list_item_1, viewGroup, false );
+        // wrap it inside a view holder and return
+        return new ViewHolder(todoView);
     }
 
     @Override
-    // take data at a position and put it into viewholder
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-
+    // responsible for binding data to a particular viewholder
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
+        // Grab item at the position
+        String item = items.get(position);
+        // bind item into specified viewholder
+        viewHolder.bind(item);
     }
 
     @Override
-    // number of available items in viewholder
+    // Return number of available items in list
     public int getItemCount() {
-        return 0;
+        return items.size();
     }
 
     /*
@@ -42,8 +52,16 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> 
      */
     class ViewHolder extends RecyclerView.ViewHolder {
 
+        TextView tvItem;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            tvItem = itemView.findViewById(android.R.id.text1);
+        }
+
+        // update the view inside of the viewholder with the item parameter
+        public void bind(String item) {
+            tvItem.setText(item);
         }
     }
 }
