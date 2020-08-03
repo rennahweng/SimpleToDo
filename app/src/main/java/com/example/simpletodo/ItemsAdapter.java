@@ -13,10 +13,17 @@ import java.util.List;
 // Responsible for displaying data from the model into a row in recycler view
 public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> {
 
-    List<String> items;
+    // Implement an interface for removing item from rv
+    public interface OnLongClickListener {
+        void onItemLongClicked(int position);
+    }
 
-    public ItemsAdapter(List<String> items) {
+    List<String> items;
+    OnLongClickListener longClickListener;
+
+    public ItemsAdapter(List<String> items, OnLongClickListener longClickListener) {
         this.items = items;
+        this.longClickListener = longClickListener;
     }
 
     @NonNull
@@ -62,6 +69,18 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> 
         // update the view inside of the viewholder with the item parameter
         public void bind(String item) {
             tvItem.setText(item);
+            tvItem.setOnLongClickListener( new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    // Remove the item from recycler view:
+                    // we need to communicate an item to the adapter behind the rv
+                    // item should be passed from main activity to adapter
+
+                    // notify the listener which position was long pressed
+                    longClickListener.onItemLongClicked( getAdapterPosition() );
+                    return true;
+                }
+            });
         }
     }
 }
