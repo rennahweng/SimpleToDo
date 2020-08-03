@@ -28,15 +28,16 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='rennahweng-walkthrough.gif' title='SimpleTodo App Walkthrough' width='' alt='SimpleTodo App Walkthrough in gif' />
+<img src='simpletodo-walkthrough.gif' title='SimpleTodo App Walkthrough' width='' alt='SimpleTodo App Walkthrough in gif' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
 Challenges encountered while building the app:
-* Difficult to understand the ItemAdapter class - read more documentations to get familiar with every single line of code.
-* 
+* Difficult to understand the ItemAdapter class
+* Documentations was confusing but after several trials, they become very useful.
+* Changing one attribute of a view item could messed up the UI, frustrating!
 
 ## License
 
