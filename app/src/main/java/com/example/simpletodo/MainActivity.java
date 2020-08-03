@@ -2,11 +2,11 @@ package com.example.simpletodo;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Button;
 import android.widget.EditText;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     // Create handlers to link with UI
     Button addBtn;
     EditText editItem;
-    RecyclerView viewItems;
+    RecyclerView rvItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,24 +28,15 @@ public class MainActivity extends AppCompatActivity {
         // Link main activity with UI view
         addBtn = findViewById(R.id.addBtn);
         editItem = findViewById(R.id.editItem);
-        viewItems = findViewById(R.id.viewItems);
+        rvItems = findViewById(R.id.rvItems);
 
         /*
          * Each view has different functions
          */
         // EditText object:
-        editItem.setText("Doing this from java!");
+        // editItem.setText("Doing this from java!");
 
         // RecyclerView object:
-        /*
-         * .Adapter - handle data collection and bind to view
-         * LayoutManager - positioning items
-         * ItemAnimator - animating items for common operations like add/remove
-         */
-
-
-
-
         // Define a model class to use as data source for recyclerview
         items = new ArrayList<>();
         items.add("Finish Codepath pre-work for android class");
@@ -53,5 +44,12 @@ public class MainActivity extends AppCompatActivity {
         items.add("Watch AWS practitioner videos on udemy");
         items.add("Update Linkedin profile");
         items.add("Thanks Codepath for this amazing opportunity to jumpstart my career!");
+
+        // Adapter - handle data collection and bind to view
+        ItemsAdapter itemsAdapter = new ItemsAdapter(items);
+        rvItems.setAdapter(itemsAdapter);
+        // LayoutManager - positioning items
+        rvItems.setLayoutManager(new LinearLayoutManager(this));
+        // ItemAnimator - animating items for common operations like add/remove
     }
 }
