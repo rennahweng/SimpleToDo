@@ -30,9 +30,23 @@ public class MainActivity extends AppCompatActivity {
         editItem = findViewById(R.id.editItem);
         viewItems = findViewById(R.id.viewItems);
 
-        // Each view has different functions
+        /*
+         * Each view has different functions
+         */
+        // EditText object:
         editItem.setText("Doing this from java!");
 
+        // RecyclerView object:
+        /*
+         * .Adapter - handle data collection and bind to view
+         * LayoutManager - positioning items
+         * ItemAnimator - animating items for common operations like add/remove
+         */
+
+
+
+
+        // Define a model class to use as data source for recyclerview
         items = new ArrayList<>();
         items.add("Finish Codepath pre-work for android class");
         items.add("Revise resume for virtual career fair");
