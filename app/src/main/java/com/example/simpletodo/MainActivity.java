@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -71,6 +72,11 @@ public class MainActivity extends AppCompatActivity {
                 itemsAdapter.notifyItemInserted(items.size() - 1);
                 // clear the edit text once the new item is added
                 editItem.setText("");
+
+                // Add a pop-up(Toast) to let user know the item is added successfully
+                Toast.makeText(getApplicationContext(),
+                        "Item was added successfully!",
+                        Toast.LENGTH_SHORT).show();
             }
         });
     }
