@@ -4,7 +4,7 @@
 
 Submitted by: **Rennah Weng**
 
-Time spent: **X** hours spent in total
+Time spent: **8** hours spent in total
 
 ## User Stories
 
@@ -20,8 +20,9 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-* [x] Changed navigation bar and color schema of the app.
 * [x] Changed logo from default to a more todo-like icon
+* [x] Changed navigation bar and color schema of the app
+* [x] Improve the UI of your app including icons, styling, color, spacing of your app.
 
 ## Video Walkthrough
 
